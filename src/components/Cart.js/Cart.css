@@ -1,0 +1,14 @@
+.cart-container{
+    text-align: center;
+    margin:10px auto;
+    border-bottom: 1px solid lightgray;
+}
+.order-review button{
+    background-color: goldenrod;
+    padding: 10px;
+    width: 150px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
