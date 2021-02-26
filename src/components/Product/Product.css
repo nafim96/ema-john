@@ -1,0 +1,22 @@
+.product-list {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  margin-right: 5px;
+  padding-bottom: 5px;
+  margin-left: 5px;
+}
+.product-title {
+  margin-left: 5px;
+}
+.product-title h3 {
+  color: blue;
+  font-weight: 400;
+}
+.main-button{
+  background-color: goldenrod;
+  width: 180px;
+  border-radius: 5px;
+  padding: 10px;
+  border: #a09d9d;
+  margin: 5px;
+}
