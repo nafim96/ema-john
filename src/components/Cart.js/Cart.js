@@ -31,7 +31,7 @@ const Cart = (props) => {
     return (
         <div>
             <div className="cart-container">
-                <h1>Order Summery</h1>
+                <h1 className="text-success bg-danger rounded p-2">Order Summery</h1>
                 <h4>Ordered Items: {cart.length}</h4>
                 <h4>Product Price: {formatNumber(total)}</h4>
                 <h4><small>Shipping: {shipping}</small></h4>
@@ -39,7 +39,7 @@ const Cart = (props) => {
                 <h4>Total: {formatNumber(grandTotal)}</h4>
             </div>
             <div className="order-review">
-                <button>Order Review</button>
+                <button className='btn btn-success'>Order Review</button>
             </div>
         </div>
     );
