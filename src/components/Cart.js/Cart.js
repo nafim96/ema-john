@@ -1,10 +1,10 @@
 import React from 'react';
+
 import './Cart.css';
 
 const Cart = (props) => {
     const cart = props.cart;
-    console.log(cart);
-    const total = cart.reduce((total, product) => total + product.price, 0)
+    const total = cart.reduce((total, product) => total + product.price * product.quantity, 0)
 
     // let total = 0;
     // for (let i = 0; cart.length; i++) {
@@ -39,7 +39,9 @@ const Cart = (props) => {
                 <h4>Total: {formatNumber(grandTotal)}</h4>
             </div>
             <div className="order-review">
-                <button className='btn btn-success'>Order Review</button>
+                {
+                    props.children
+                }
             </div>
         </div>
     );
