@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import fakeData from "../../fakeData";
+import { useHistory } from "react-router";
+import happyImage from "../../images/giphy.gif";
 import {
-  getDatabaseCart,
-  processOrder,
-  removeFromDatabaseCart,
+    getDatabaseCart,
+    removeFromDatabaseCart
 } from "../../utilities/databaseManager";
 import Cart from "../Cart.js/Cart";
 import ReviewItems from "../ReviewItems/ReviewItems";
-import happyImage from "../../images/giphy.gif";
-import { useHistory } from "react-router";
 
 const Review = () => {
   const [cart, setCart] = useState([]);
@@ -27,15 +25,22 @@ const Review = () => {
     setCart(newCart);
     removeFromDatabaseCart(productKey);
   };
+
   useEffect(() => {
     const saveCart = getDatabaseCart();
     const productKeys = Object.keys(saveCart);
-    const cartProducts = productKeys.map((key) => {
-      const product = fakeData.find((pd) => pd.key === key);
-      product.quantity = saveCart[key];
-      return product;
-    });
-    setCart(cartProducts);
+    fetch("https://tranquil-beyond-11065.herokuapp.com/productsByKeys", {
+      method: "POST",
+      body: JSON.stringify(productKeys),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCart(data)
+      });
+
   }, []);
 
   let thankYou;
